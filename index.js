@@ -2,16 +2,15 @@
 
 'use strict';
 
+var config = require('config.json');
 var debug = require('debug')('tempHum');
 var Promise = require('promise');
 var sensor = require('node-dht-sensor');
 var storage = require('./lib/storage');
 
-var sensorGpio = 4;
-
 function read () {
   return new Promise(function (resolve, reject) {
-    sensor.read(22, sensorGpio, function(err, temperature, humidity) {
+    sensor.read(22, config.gpioPin, function(err, temperature, humidity) {
       if (!err) {
         resolve({
           "temperature": temperature,
