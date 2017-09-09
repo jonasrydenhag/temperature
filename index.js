@@ -2,7 +2,7 @@
 
 'use strict';
 
-var config = require('config.json');
+var config = require('./config.json');
 var debug = require('debug')('tempHum');
 var Promise = require('promise');
 var sensor = require('node-dht-sensor');
